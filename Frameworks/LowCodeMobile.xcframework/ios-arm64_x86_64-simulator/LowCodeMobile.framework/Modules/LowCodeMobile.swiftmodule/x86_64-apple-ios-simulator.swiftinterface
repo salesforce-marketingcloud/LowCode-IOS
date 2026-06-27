@@ -1,0 +1,204 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target x86_64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name LowCodeMobile
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import Combine
+import Foundation
+import Personalization
+import SFMCSDK
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct RecommendationTapEvent {
+  public let item: LowCodeMobile.RecommendationItem
+  public let index: Swift.Int
+  public init(item: LowCodeMobile.RecommendationItem, index: Swift.Int)
+}
+public struct BannerModel : LowCodeMobile.ComponentModel {
+  public let header: Swift.String
+  public let subheader: Swift.String?
+  public let imageUrl: Swift.String
+  public let ctaText: Swift.String?
+  public let ctaUrl: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(header: Swift.String, subheader: Swift.String? = nil, imageUrl: Swift.String, ctaText: Swift.String? = nil, ctaUrl: Swift.String? = nil)
+  #endif
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_Concurrency.MainActor public class Recommendations : LowCodeMobile.Component {
+  @_Concurrency.MainActor public static let name: Swift.String
+  public typealias Content = LowCodeMobile.RecommendationsView
+  public typealias Model = LowCodeMobile.RecommendationsModel
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor public init(style: LowCodeMobile.RecommendationsStyle? = nil, onTap: ((LowCodeMobile.RecommendationTapEvent) -> Swift.Void)? = nil)
+  #endif
+  @_Concurrency.MainActor public func validateAndCreateComponentModel(unvalidatedJson: Foundation.Data, componentContext: LowCodeMobile.ComponentContext) throws -> LowCodeMobile.RecommendationsModel
+  @_Concurrency.MainActor public func compose(model: LowCodeMobile.RecommendationsModel, componentContext: LowCodeMobile.ComponentContext) -> LowCodeMobile.Recommendations.Content
+  @objc deinit
+}
+@_Concurrency.MainActor @preconcurrency public struct RecommendationsView : SwiftUICore.View {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public init(model: LowCodeMobile.RecommendationsModel, componentContext: LowCodeMobile.ComponentContext, style: LowCodeMobile.RecommendationsStyle? = nil, onTap: ((LowCodeMobile.RecommendationTapEvent) -> Swift.Void)? = nil)
+  #endif
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13LowCodeMobile19RecommendationsViewV4bodyQrvp", 0) __
+}
+public struct RecommendationsModel : LowCodeMobile.ComponentModel {
+  public let sectionHeader: Swift.String?
+  public let ctaText: Swift.String?
+  public let items: [LowCodeMobile.RecommendationItem]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(sectionHeader: Swift.String? = nil, ctaText: Swift.String? = nil, items: [LowCodeMobile.RecommendationItem])
+  #endif
+  public init(from decoder: any Swift.Decoder) throws
+}
+public protocol ComponentModel : Swift.Decodable {
+}
+@_Concurrency.MainActor public protocol Component {
+  @_Concurrency.MainActor static var name: Swift.String { get }
+  associatedtype Content : SwiftUICore.View
+  associatedtype Model : LowCodeMobile.ComponentModel
+  @_Concurrency.MainActor func validateAndCreateComponentModel(unvalidatedJson: Foundation.Data, componentContext: LowCodeMobile.ComponentContext) throws -> Self.Model
+  @_Concurrency.MainActor func compose(model: Self.Model, componentContext: LowCodeMobile.ComponentContext) -> Self.Content
+}
+@_Concurrency.MainActor public class Banner : LowCodeMobile.Component {
+  @_Concurrency.MainActor public static let name: Swift.String
+  public typealias Content = LowCodeMobile.BannerView
+  public typealias Model = LowCodeMobile.BannerModel
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor public init(style: LowCodeMobile.BannerStyle? = nil, onTap: ((LowCodeMobile.BannerTapEvent) -> Swift.Void)? = nil)
+  #endif
+  @_Concurrency.MainActor public func validateAndCreateComponentModel(unvalidatedJson: Foundation.Data, componentContext: LowCodeMobile.ComponentContext) throws -> LowCodeMobile.BannerModel
+  @_Concurrency.MainActor public func compose(model: LowCodeMobile.BannerModel, componentContext: LowCodeMobile.ComponentContext) -> LowCodeMobile.Banner.Content
+  @objc deinit
+}
+@_Concurrency.MainActor public struct ContentZone<Loading, Fallback> : SwiftUICore.View where Loading : SwiftUICore.View, Fallback : SwiftUICore.View {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor public init(name: Swift.String, allowedComponents: [any LowCodeMobile.Component], decisionsRequestContext: Personalization.DecisionsRequestContext? = nil, timeoutSeconds: Foundation.TimeInterval = 10.0, controller: LowCodeMobile.ContentZoneController? = nil, @SwiftUICore.ViewBuilder loading: @escaping () -> Loading = { EmptyView() }, @SwiftUICore.ViewBuilder fallback: @escaping (any Swift.Error) -> Fallback = { _ in EmptyView() })
+  #endif
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13LowCodeMobile11ContentZoneV4bodyQrvp", 0) __<Loading, Fallback>
+}
+@_Concurrency.MainActor public struct MockDataContentZone<Loading, Fallback> : SwiftUICore.View where Loading : SwiftUICore.View, Fallback : SwiftUICore.View {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor public init(name: Swift.String, allowedComponents: [any LowCodeMobile.Component], mockContent: @escaping () throws -> any LowCodeMobile.ComponentModel, mockLoadingSeconds: Foundation.TimeInterval = 1.0, controller: LowCodeMobile.ContentZoneController? = nil, @SwiftUICore.ViewBuilder loading: @escaping () -> Loading = { EmptyView() }, @SwiftUICore.ViewBuilder fallback: @escaping (any Swift.Error) -> Fallback = { _ in EmptyView() })
+  #endif
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13LowCodeMobile19MockDataContentZoneV4bodyQrvp", 0) __<Loading, Fallback>
+}
+@_Concurrency.MainActor @preconcurrency public struct BannerView : SwiftUICore.View {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public init(model: LowCodeMobile.BannerModel, componentContext: LowCodeMobile.ComponentContext, style: LowCodeMobile.BannerStyle? = nil, onTap: ((LowCodeMobile.BannerTapEvent) -> Swift.Void)? = nil)
+  #endif
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13LowCodeMobile10BannerViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor final public class ContentZoneController {
+  @_Concurrency.MainActor public init()
+  @_Concurrency.MainActor final public func refresh(withLoadingState: Swift.Bool = false) async
+  @objc deinit
+}
+public typealias BannerTapEvent = LowCodeMobile.BannerModel
+public enum ContentSource {
+  case production
+  case mock
+  case preview
+  public static func == (a: LowCodeMobile.ContentSource, b: LowCodeMobile.ContentSource) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct ComponentContext {
+  public let contentSource: LowCodeMobile.ContentSource
+  public let personalizationId: Swift.String
+  public let engagementPayloads: Personalization.EngagementPayloads?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(contentSource: LowCodeMobile.ContentSource, personalizationId: Swift.String, engagementPayloads: Personalization.EngagementPayloads? = nil)
+  #endif
+}
+public struct BannerItem : Swift.Codable {
+  public let id: Swift.String
+  public let header: Swift.String
+  public let subheader: Swift.String?
+  public let imageUrl: Swift.String
+  public let ctaText: Swift.String?
+  public let ctaUrl: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, header: Swift.String, subheader: Swift.String? = nil, imageUrl: Swift.String, ctaText: Swift.String? = nil, ctaUrl: Swift.String? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BannerStyle {
+  public let backgroundColor: SwiftUICore.Color?
+  public let headerTextColor: SwiftUICore.Color?
+  public let subheaderTextColor: SwiftUICore.Color?
+  public let ctaTextColor: SwiftUICore.Color?
+  public let contentPadding: CoreFoundation.CGFloat?
+  public let imageWidthFraction: Swift.Float?
+  public let maxImageSize: CoreFoundation.CGFloat?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(backgroundColor: SwiftUICore.Color? = nil, headerTextColor: SwiftUICore.Color? = nil, subheaderTextColor: SwiftUICore.Color? = nil, ctaTextColor: SwiftUICore.Color? = nil, contentPadding: CoreFoundation.CGFloat? = nil, imageWidthFraction: Swift.Float? = nil, maxImageSize: CoreFoundation.CGFloat? = nil)
+  #endif
+}
+public struct RecommendationItem : Swift.Codable {
+  public let id: Swift.String
+  public let name: Swift.String
+  public let description: Swift.String?
+  public let imageUrl: Swift.String
+  public let url: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, name: Swift.String, description: Swift.String? = nil, imageUrl: Swift.String, url: Swift.String? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RecsCardStyle {
+  public let backgroundColor: SwiftUICore.Color?
+  public let nameTextColor: SwiftUICore.Color?
+  public let descriptionTextColor: SwiftUICore.Color?
+  public let ctaTextColor: SwiftUICore.Color?
+  public let contentPadding: CoreFoundation.CGFloat?
+  public let imageWidthFraction: Swift.Float?
+  public let maxImageSize: CoreFoundation.CGFloat?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(backgroundColor: SwiftUICore.Color? = nil, nameTextColor: SwiftUICore.Color? = nil, descriptionTextColor: SwiftUICore.Color? = nil, ctaTextColor: SwiftUICore.Color? = nil, contentPadding: CoreFoundation.CGFloat? = nil, imageWidthFraction: Swift.Float? = nil, maxImageSize: CoreFoundation.CGFloat? = nil)
+  #endif
+}
+public struct SectionHeaderStyle {
+  public let textColor: SwiftUICore.Color?
+  public let padding: CoreFoundation.CGFloat?
+  public let textStyle: SwiftUICore.Font?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(textColor: SwiftUICore.Color? = nil, padding: CoreFoundation.CGFloat? = nil, textStyle: SwiftUICore.Font? = nil)
+  #endif
+}
+public struct RecommendationsStyle {
+  public let sectionHeader: LowCodeMobile.SectionHeaderStyle?
+  public let cardSpacing: CoreFoundation.CGFloat?
+  public let card: LowCodeMobile.RecsCardStyle?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(sectionHeader: LowCodeMobile.SectionHeaderStyle? = nil, cardSpacing: CoreFoundation.CGFloat? = nil, card: LowCodeMobile.RecsCardStyle? = nil)
+  #endif
+}
+extension LowCodeMobile.Recommendations : Swift.Sendable {}
+extension LowCodeMobile.RecommendationsView : Swift.Sendable {}
+extension LowCodeMobile.Banner : Swift.Sendable {}
+extension LowCodeMobile.ContentZone : Swift.Sendable {}
+extension LowCodeMobile.MockDataContentZone : Swift.Sendable {}
+extension LowCodeMobile.BannerView : Swift.Sendable {}
+extension LowCodeMobile.ContentZoneController : Swift.Sendable {}
+extension LowCodeMobile.ContentSource : Swift.Equatable {}
+extension LowCodeMobile.ContentSource : Swift.Hashable {}
